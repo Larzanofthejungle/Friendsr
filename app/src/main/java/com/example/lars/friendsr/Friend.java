@@ -11,6 +11,7 @@ public class Friend implements Serializable {
         this.name = name;
         this.bio = bio;
         this.drawableId = drawableId;
+        this.rating = 0;
     }
 
     public String getName() {

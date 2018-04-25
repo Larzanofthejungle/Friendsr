@@ -1,8 +1,11 @@
 package com.example.lars.friendsr;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import java.util.ArrayList;
@@ -28,5 +31,18 @@ public class MainActivity extends AppCompatActivity {
         FriendsAdapter adapter = new FriendsAdapter(this, R.layout.grid_item , friends);
         GridView gridView = findViewById(R.id.GridView);
         gridView.setAdapter(adapter);
+        gridView.setOnItemClickListener(new GridItemClickListener());
+    }
+
+    private class GridItemClickListener implements AdapterView.OnItemClickListener {
+
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            Friend clickedFriend = (Friend) adapterView.getItemAtPosition(i);
+            Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+            intent.putExtra("clicked_friend", clickedFriend);
+            intent.putExtra("clicked_position", i);
+            startActivity(intent);
+        }
     }
 }
