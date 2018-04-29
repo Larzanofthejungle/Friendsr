@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<Friend> friends = new ArrayList<>();
-    String[] friendNames = {"Arya", "Cersei", "Daenerys", "Jaime", "Jon", "Jorah", "Margaery", "Melisandre", "Sansa", "Tyrion"};
+    String[] friendNames = {"...", "Cersei", "Daenerys", "Jaime", "Jon", "Jorah", "Margaery", "Melisandre", "Sansa", "Tyrion"};
     String[] friendBios = {"A girl has no name", "Shame, Shame, Shame", "Mother of Dragons", "The Kingslayer",
             "Knows Nothing", "Master of the Friendzone", "Desperate to be Queen",
             "Better than Dr. Frankenstein", "Miss Abuse", "“That's what I do. I drink and I know things.”"};
@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
             Friend clickedFriend = (Friend) adapterView.getItemAtPosition(i);
             Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
             intent.putExtra("clicked_friend", clickedFriend);
-            intent.putExtra("clicked_position", i);
             startActivity(intent);
         }
     }
